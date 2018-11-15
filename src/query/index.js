@@ -21,13 +21,15 @@ const findOne = function (phoneNumber) {
     collection.findOne({ phoneNumber: Number(phoneNumber) }, function (err, item) {
       assert.strictEqual(null, err)
 
-      console.log(item)
+      let res = item
 
       client.close(function (err) {
         assert.strictEqual(null, err)
 
         console.log('db has been closed.')
       })
+
+      return !!(res)
     })
   })
 }
