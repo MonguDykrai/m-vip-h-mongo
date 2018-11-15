@@ -18,7 +18,7 @@ const findOne = function (phoneNumber) {
 
     const collection = db.collection('users')
 
-    collection.findOne({ phoneNumber: phoneNumber }, function (err, item) {
+    collection.findOne({ phoneNumber: String(phoneNumber) }, function (err, item) {
       assert.strictEqual(null, err)
 
       console.log(item)
