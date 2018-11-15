@@ -19,7 +19,7 @@ const findOne = function (phoneNumber) {
     const collection = db.collection('users')
 
     collection.findOne({ phoneNumber: phoneNumber }, function (err, item) {
-      assert.strictEqual(undefined, err)
+      assert.strictEqual(null, err)
 
       console.log(item)
     })
