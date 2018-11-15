@@ -1,8 +1,5 @@
-var axios = require('axios')
-var fs = require('fs')
-var path = require('path')
-
 var tools = require('../assets/js/tools')
+var findOne = require('../query')
 
 function getCaptcha(req, res, next) {
 
@@ -11,6 +8,8 @@ function getCaptcha(req, res, next) {
   const { phoneNumber } = req.body
 
   console.log(phoneNumber)
+
+  findOne(phoneNumber)
 
   res.json({msg: 'hello'})
 }
