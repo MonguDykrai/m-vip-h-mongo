@@ -9,6 +9,8 @@ function toUnregUser(req, res, next) {
   console.log(captcha, phoneNumber)
 
   // console.log(req, res, next)
+
+  res.json({ msg: 'unregistered user' })
 }
 
 module.exports = toUnregUser

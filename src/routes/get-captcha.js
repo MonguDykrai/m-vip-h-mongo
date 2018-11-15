@@ -18,15 +18,11 @@ function getCaptcha(req, res, next) {
       // 注册用户
       sendMessage.toRegUser(req, res, next)
 
-      res.json({ msg: 'registered user' })
-
       return
     }
 
     // 未注册用户
     sendMessage.toUnregUser(req, res, next)
-
-    res.json({ msg: 'unregistered user' })
 
     return
   })

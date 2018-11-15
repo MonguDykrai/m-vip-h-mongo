@@ -9,6 +9,8 @@ function toRegUser(req, res, next) {
   console.log(captcha, phoneNumber)
 
   // console.log(req, res, next)
+
+  res.json({ msg: 'registered user' })
 }
 
 module.exports = toRegUser
