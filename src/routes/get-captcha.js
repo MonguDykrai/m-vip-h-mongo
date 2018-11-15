@@ -1,22 +1,35 @@
-var tools = require('../assets/js/tools')
 var findOne = require('../query')
 
-function getCaptcha(req, res, next) {
+var sendMessage = require('../messages')
 
-  let captcha = tools.generateCaptcha()
+function getCaptcha(req, res, next) {
 
   const { phoneNumber } = req.body
 
   findOne(phoneNumber, function (item) {
-    
+
     console.log(item)
 
     const isRegistered = !!item // {} || null
 
     console.log(`isRegistered: ${isRegistered}`)
-  })
 
-  res.json({ msg: 'hello' })
+    if (isRegistered) {
+      // 注册用户
+      sendMessage.toRegUser(req, res, next)
+
+      res.json({ msg: 'registered user' })
+
+      return
+    }
+
+    // 未注册用户
+    sendMessage.toUnregUser(req, res, next)
+
+    res.json({ msg: 'unregistered user' })
+
+    return
+  })
 }
 
 module.exports = getCaptcha
