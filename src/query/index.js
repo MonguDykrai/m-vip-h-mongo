@@ -1,4 +1,4 @@
-const findOne = function (phoneNumber) {
+const findOne = function (phoneNumber, callback) {
 
   const MongoClient = require('mongodb').MongoClient
   const assert = require('assert').strict
@@ -21,7 +21,7 @@ const findOne = function (phoneNumber) {
     collection.findOne({ phoneNumber: Number(phoneNumber) }, function (err, item) {
       assert.strictEqual(null, err)
 
-      let res = item
+      callback(item)
 
       client.close(function (err) {
         assert.strictEqual(null, err)
@@ -29,9 +29,9 @@ const findOne = function (phoneNumber) {
         console.log('db has been closed.')
       })
 
-      return !!(res)
     })
   })
+
 }
 
 module.exports = findOne

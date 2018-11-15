@@ -7,9 +7,11 @@ function getCaptcha(req, res, next) {
 
   const { phoneNumber } = req.body
 
-  console.log(findOne(phoneNumber)) // {} || null
+  findOne(phoneNumber, function (item) {
+    console.log(item)
+  }) // {} || null
 
-  res.json({msg: 'hello'})
+  res.json({ msg: 'hello' })
 }
 
 module.exports = getCaptcha
