@@ -10,7 +10,7 @@ const findOne = function (phoneNumber) {
   const client = new MongoClient(url)
 
   client.connect(function (err) {
-    assert.strictEqual(undefined, err)
+    assert.strictEqual(null, err)
 
     console.log('Connected successfully to server')
 
