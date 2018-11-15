@@ -7,9 +7,7 @@ function getCaptcha(req, res, next) {
 
   const { phoneNumber } = req.body
 
-  const isRegistered = findOne(phoneNumber) // {} || null
-
-  console.log(isRegistered)
+  console.log(findOne(phoneNumber)) // {} || null
 
   res.json({msg: 'hello'})
 }
