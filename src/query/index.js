@@ -22,12 +22,12 @@ const findOne = function (phoneNumber) {
       assert.strictEqual(null, err)
 
       console.log(item)
-    })
 
-    client.close(function (err) {
-      assert.strictEqual(null, err)
+      client.close(function (err) {
+        assert.strictEqual(null, err)
 
-      console.log('db has been closed.')
+        console.log('db has been closed.')
+      })
     })
   })
 }
