@@ -8,7 +8,7 @@ function toUnregUser(req, res, next) {
 
   console.log(captcha, phoneNumber)
 
-  console.log(req, res, next)
+  // console.log(req, res, next)
 }
 
 module.exports = toUnregUser
