@@ -6,10 +6,11 @@ var tools = require('../assets/js/tools')
 
 function getCaptcha(req, res, next) {
 
-  console.log(req.body)
-
   let captcha = tools.generateCaptcha()
-  console.log(captcha)
+
+  const { phoneNumber } = req.body
+
+  console.log(phoneNumber)
 
   res.json({msg: 'hello'})
 }
