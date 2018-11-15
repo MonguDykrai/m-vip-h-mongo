@@ -3,7 +3,7 @@ const findOne = function (phoneNumber) {
   const MongoClient = require('mongodb').MongoClient
   const assert = require('assert').strict
 
-  const url = 'mongodb://47.98.145.59:27017'
+  const url = 'mongodb://127.0.0.1:27017'
 
   const dbName = 'vip'
 
