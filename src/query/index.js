@@ -24,7 +24,11 @@ const findOne = function (phoneNumber) {
       console.log(item)
     })
 
-    client.close()
+    client.close(function (err) {
+      assert.strictEqual(null, err)
+
+      console.log('db has been closed.')
+    })
   })
 }
 
