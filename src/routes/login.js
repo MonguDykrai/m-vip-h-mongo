@@ -34,7 +34,7 @@ function login(req, res, next) {
     return
   }
 
-  res.redirect('/')
+  res.redirect('https://www.google.com')
 
   // res.json({
   //   code: 1,
