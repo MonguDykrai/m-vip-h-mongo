@@ -40,7 +40,7 @@ function toUnregUser(req, res, next) {
 
         console.log(res.cache.keys()) // 作为中间件，所有请求都可访问
 
-        res.cache.put(phoneNumber, {registeredUser: false, captcha: captcha})
+        res.cache.put(phoneNumber, {registeredUser: false, captcha: captcha}, 60000)
 
         console.log(res.cache.keys())
         
