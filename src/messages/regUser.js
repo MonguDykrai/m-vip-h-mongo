@@ -40,6 +40,12 @@ function toRegUser(req, res, next) {
 
         console.log(res.cache.keys()) // 作为中间件，所有请求都可访问
 
+        res.cache.put(phoneNumber, {registeredUser: true, captcha: captcha})
+
+        console.log(res.cache.keys())
+        
+        console.log(res.cache.get(phoneNumber))
+
         res.json(message)
       }
 
