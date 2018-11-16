@@ -1,4 +1,4 @@
-var findOne = require('../query')
+var findOne = require('../query/find-one')
 
 var sendMessage = require('../messages')
 
