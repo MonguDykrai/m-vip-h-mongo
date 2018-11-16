@@ -37,7 +37,7 @@ function login(req, res, next) {
 
   const { registeredUser } = cachedObj
 
-  if (registeredUser) {
+  if (!registeredUser) {
     insertOne(phoneNumber)
   }
 
