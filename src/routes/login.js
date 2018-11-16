@@ -34,7 +34,7 @@ function login(req, res, next) {
     return
   }
 
-  res.redirect('http://47.98.145.59:9090')
+  res.redirect('/')
 
   // res.json({
   //   code: 1,
