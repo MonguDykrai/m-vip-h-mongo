@@ -39,10 +39,17 @@ function login(req, res, next) {
 
   if (!registeredUser) {
     insertOne(phoneNumber, function (item) {
-      const insertSuccessful = !!item
-      console.log(`insertSuccessful: ${insertSuccessful}`)
+      const success = !!item
+
+      if (success) {
+        console.log('新用户信息保存成功')
+      }
     })
+
   }
+
+  res.cookie('login', 'true') // 临时代替 JSON Web Token
+  res.cache.del(phoneNumber) // 清除临时缓存
 
   res.json({
     code: 1,
