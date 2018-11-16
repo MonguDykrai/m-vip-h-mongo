@@ -34,10 +34,12 @@ function login(req, res, next) {
     return
   }
 
-  res.json({
-    code: 1,
-    msg: '登陆成功'
-  })
+  res.redirect('http://47.98.145.59:9090')
+
+  // res.json({
+  //   code: 1,
+  //   msg: '登陆成功'
+  // })
 }
 
 module.exports = login
