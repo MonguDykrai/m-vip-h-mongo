@@ -12,7 +12,7 @@ function login(req, res, next) {
 
   console.log(captchaHasBeenRequested)
 
-  const isMatched = (captcha == cachedObj.captcha)
+  const isMatched = !!cachedObj ? (captcha == cachedObj.captcha) : false
 
   console.log(isMatched)
 }
