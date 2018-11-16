@@ -1,3 +1,4 @@
+const insertOne = require('../query/insert-one')
 
 function login(req, res, next) {
   const { phoneNumber, captcha } = req.body
@@ -32,6 +33,12 @@ function login(req, res, next) {
     })
 
     return
+  }
+
+  const { registeredUser } = cachedObj
+
+  if (registeredUser) {
+    insertOne(phoneNumber)
   }
 
   res.json({
