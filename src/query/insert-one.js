@@ -1,4 +1,4 @@
-const insertOne = function (phoneNumber) {
+const insertOne = function (phoneNumber, callback) {
 
   const MongoClient = require('mongodb').MongoClient
   const assert = require('assert').strict
@@ -18,10 +18,11 @@ const insertOne = function (phoneNumber) {
 
     const collection = db.collection('users')
 
+    // 应该将 collection.insertOne 的返回值，作为是否查询成功的条件，当前是 item （需要改）
     collection.insertOne({ phoneNumber: Number(phoneNumber) }, function (err, item) {
       assert.strictEqual(null, err)
 
-      console.log(item)
+      callback(item)
 
       client.close(function (err) {
         assert.strictEqual(null, err)

@@ -18,6 +18,7 @@ const findOne = function (phoneNumber, callback) {
 
     const collection = db.collection('users')
 
+    // 应该将 collection.insertOne 的返回值，作为是否查询成功的条件，当前是 item （需要改）
     collection.findOne({ phoneNumber: Number(phoneNumber) }, function (err, item) {
       assert.strictEqual(null, err)
 

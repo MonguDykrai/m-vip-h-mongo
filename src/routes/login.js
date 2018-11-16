@@ -38,7 +38,10 @@ function login(req, res, next) {
   const { registeredUser } = cachedObj
 
   if (!registeredUser) {
-    insertOne(phoneNumber)
+    insertOne(phoneNumber, function (item) {
+      const insertSuccessful = !!item
+      console.log(`insertSuccessful: ${insertSuccessful}`)
+    })
   }
 
   res.json({
