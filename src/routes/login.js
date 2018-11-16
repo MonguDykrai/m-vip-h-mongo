@@ -34,12 +34,10 @@ function login(req, res, next) {
     return
   }
 
-  res.redirect('https://www.google.com')
-
-  // res.json({
-  //   code: 1,
-  //   msg: '登陆成功'
-  // })
+  res.json({
+    code: 1,
+    msg: '登陆成功'
+  })
 }
 
 module.exports = login
