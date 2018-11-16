@@ -38,6 +38,8 @@ function toRegUser(req, res, next) {
           }
         }
 
+        console.log(res.cache) // 作为中间件，所有请求都可访问
+
         res.json(message)
       }
 
