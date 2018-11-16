@@ -4,7 +4,17 @@ function login(req, res, next) {
 
   console.log(phoneNumber, captcha)
 
-  console.log(res.cache.get(phoneNumber))
+  const cachedObj = res.cache.get(phoneNumber)
+
+  console.log(cachedObj)
+
+  const captchaHasBeenRequested = !!cachedObj
+
+  console.log(captchaHasBeenRequested)
+
+  const isMatched = (captcha == cachedObj.captcha)
+
+  console.log(isMatched)
 }
 
 module.exports = login
