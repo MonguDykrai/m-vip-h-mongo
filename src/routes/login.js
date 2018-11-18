@@ -59,7 +59,8 @@ function login(req, res, next) {
   res.json({
     code: 1,
     msg: '登陆成功',
-    token
+    token,
+    status: Date.now()
   })
 }
 
