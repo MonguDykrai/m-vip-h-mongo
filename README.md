@@ -31,3 +31,17 @@ app.use(history())
     ├── routes ································ 路由
     └── app.js ································ 入口
 ```
+
+## 受保护的路由
+
+待收货 <https://m.vip.com/user-order-list-unreceive.html>
+
+待付款 <https://m.vip.com/user-order-list-unpay.html>
+
+全部订单 <https://m.vip.com/user-order-list-more.html>
+
+申请售后 <https://m.vip.com/user-order-list-return.html>
+
+我的收藏 <https://m.vip.com/user-fav-brand.html>
+
+修改登录密码 <https://m.vip.com/user-updatepwd.html>

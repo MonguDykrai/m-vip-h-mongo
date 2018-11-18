@@ -1,4 +1,6 @@
 const insertOne = require('../query/insert-one')
+const jwt = require('jsonwebtoken')
+const secretKey = 'secretkey'
 
 function login(req, res, next) {
   const { phoneNumber, captcha } = req.body
@@ -48,12 +50,16 @@ function login(req, res, next) {
 
   }
 
-  res.cookie('login', 'true') // 临时代替 JSON Web Token
+  // res.cookie('login', 'true') // 临时代替 JSON Web Token
   res.cache.del(phoneNumber) // 清除临时缓存
+
+  const token = jwt.sign({phoneNumber, captcha}, secretKey, {expiresIn: '0.5h'})
+  console.log(token)
 
   res.json({
     code: 1,
-    msg: '登陆成功'
+    msg: '登陆成功',
+    token
   })
 }
 
