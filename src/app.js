@@ -1,6 +1,6 @@
 var express = require('express')
 var app = express()
-var cors = require('cors')
+// var cors = require('cors')
 
 var bodyParser = require('body-parser')
 
@@ -11,9 +11,9 @@ var installMemoryCache = require('./middlewares/memory-cache')
 // routes
 var routes = require('./routes')
 
-app.use(cors())
+// app.use(cors())
 
-// app.use(history()) // 解决 history mode 404
+app.use(history()) // 解决 history mode 404
 
 app.use(installMemoryCache) // 将 cache 作为中间件，所有请求都可读取
 
