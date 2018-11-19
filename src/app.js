@@ -1,7 +1,6 @@
 var express = require('express')
 var app = express()
 var cors = require('cors')
-const jwt = require('jsonwebtoken')
 
 var bodyParser = require('body-parser')
 
@@ -24,20 +23,23 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('dist')) // handle static resources
 
 app.post('/get-captcha', function (req, res, next) {
-  routes.getCaptcha(req, res, next)
+  routes.normal.getCaptcha(req, res, next)
 })
 
 app.post('/login', function (req, res, next) {
-  routes.login(req, res, next)
+  routes.normal.login(req, res, next)
 })
 
 app.get('/get-fav-product', function (req, res, next) {
-  const token = req.headers.authorization
-  jwt.verify(token, 'secretkey', function (err, decoded) {
-    if (err) throw err
+  routes.protected.userFavProduct(req, res, next)
+})
 
-    console.log(decoded)
-  })
+app.get('/get-fav-brand', function (req, res, next) {
+  routes.protected.userFavBrand(req, res, next)
+})
+
+app.get('/get-fav-store', function (req, res, next) {
+  routes.protected.userFavStore(req, res, next)
 })
 
 app.listen(9090, function () {

@@ -1,4 +1,4 @@
-const findOne = function (phoneNumber, callback) {
+const findOne = function (query, projection, callback) {
 
   const MongoClient = require('mongodb').MongoClient
   const assert = require('assert').strict
@@ -18,7 +18,8 @@ const findOne = function (phoneNumber, callback) {
 
     const collection = db.collection('users')
 
-    collection.findOne({ phoneNumber: Number(phoneNumber) }, function (err, item) {
+    // findOne(query, {projection: {_id: 0, userFavStore: 0, userFavBrand: 0, phoneNumber: 0}}, callback)
+    collection.findOne(query, {projection}, function (err, item) {
       assert.strictEqual(null, err)
 
       callback(item)

@@ -1,12 +1,12 @@
-var findOne = require('../query/find-one')
+var findOne = require('../../query/users/find-one')
 
-var sendMessage = require('../messages')
+var sendMessage = require('../../messages')
 
 function getCaptcha(req, res, next) {
 
   const { phoneNumber } = req.body
 
-  findOne(phoneNumber, function (item) {
+  findOne({ phoneNumber: Number(phoneNumber) }, null, function (item) {
 
     console.log(item)
 

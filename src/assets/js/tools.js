@@ -14,9 +14,12 @@ function getCurrTime() {
   return moment(Date.now()).format('YYYY-MM-DD HH:mm:ss')
 }
 
+const toString = Object.prototype.toString
+
 var tools = {
   generateCaptcha,
-  getCurrTime
+  getCurrTime,
+  toString
 }
 
 module.exports = tools
